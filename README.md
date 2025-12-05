@@ -1,40 +1,200 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🌐 Web Content Scraper
 
-## Getting Started
+Application Next.js moderne pour récupérer et analyser le contenu HTML, CSS et JavaScript de n'importe quelle page web accessible publiquement.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-13+-black?style=flat-square&logo=next.js)
+![React](https://img.shields.io/badge/React-18+-61dafb?style=flat-square&logo=react)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3+-38bdf8?style=flat-square&logo=tailwind-css)
+
+## ✨ Fonctionnalités
+
+- 🎨 **Interface moderne** avec Tailwind CSS et dégradés élégants
+- 📄 **Extraction séparée** du HTML, CSS et JavaScript
+- 🔄 **Séparation intelligente** - Le HTML est nettoyé sans balises `<style>` et `<script>`
+- 📋 **Copie en un clic** - Copiez le code dans le presse-papier
+- 💾 **Téléchargement** - Téléchargez chaque type de fichier séparément
+- 🕐 **Historique** - Menu déroulant avec les 10 dernières URLs analysées
+- ⚡ **Chargement instantané** - Rechargez une URL depuis l'historique sans nouvelle requête
+- 🗑️ **Gestion de l'historique** - Supprimez les entrées individuellement
+- 💾 **Persistance** - L'historique est sauvegardé dans le navigateur
+- 📊 **Compteur de caractères** - Voyez la taille de chaque section
+- 🎯 **Design responsive** - Fonctionne sur tous les écrans
+
+## 🚀 Installation
+
+### Prérequis
+
+- Node.js 16+ installé sur votre machine
+- npm ou yarn
+
+### Étapes d'installation
+
+1. **Cloner ou créer le projet**
+
+```bash
+npx create-next-app@latest web-scraper
+cd web-scraper
+```
+
+Lors de l'installation, choisissez :
+- ❌ TypeScript: No
+- ✅ ESLint: Yes
+- ✅ Tailwind CSS: Yes
+- ❌ src/ directory: No
+- ❌ App Router: No (utilisez Pages Router)
+- ❌ Import alias: No
+
+2. **Installer les dépendances**
+
+```bash
+npm install axios cheerio lucide-react
+```
+
+3. **Créer la structure des fichiers**
+
+```
+web-scraper/
+├── pages/
+│   ├── api/
+│   │   └── scrape.js      # API backend
+│   └── index.js           # Page principale
+├── public/
+├── styles/
+│   └── globals.css
+├── package.json
+└── README.md
+```
+
+4. **Copier les fichiers**
+
+- Copiez le code fourni dans `pages/index.js`
+- Copiez le code de l'API dans `pages/api/scrape.js`
+
+5. **Lancer le projet**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. **Ouvrir dans le navigateur**
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Accédez à [http://localhost:3000](http://localhost:3000)
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 📖 Utilisation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### Analyser une page web
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Entrez l'URL d'un site web dans le champ de saisie
+2. Cliquez sur "Analyser" ou appuyez sur Entrée
+3. Attendez quelques secondes pendant le chargement
+4. Naviguez entre les onglets HTML, CSS et JavaScript
 
-## Learn More
+### Utiliser l'historique
 
-To learn more about Next.js, take a look at the following resources:
+1. Après avoir analysé une URL, une icône d'horloge 🕐 apparaît dans le champ
+2. Cliquez dessus pour ouvrir le menu déroulant
+3. Cliquez sur une URL pour charger instantanément son contenu
+4. Utilisez l'icône 🗑️ pour supprimer une entrée
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### Copier ou télécharger
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Copier** : Cliquez sur le bouton "Copier" pour mettre le code dans le presse-papier
+- **Télécharger** : Cliquez sur "Télécharger" pour sauvegarder en fichier (.html, .css, .js)
 
-## Deploy on Vercel
+## 🛠️ Technologies utilisées
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **[Next.js](https://nextjs.org/)** - Framework React pour applications web
+- **[React](https://react.dev/)** - Bibliothèque JavaScript pour interfaces utilisateur
+- **[Tailwind CSS](https://tailwindcss.com/)** - Framework CSS utilitaire
+- **[Axios](https://axios-http.com/)** - Client HTTP pour requêtes
+- **[Cheerio](https://cheerio.js.org/)** - Parser HTML côté serveur
+- **[Lucide React](https://lucide.dev/)** - Icônes modernes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📁 Structure du code
+
+### Frontend (`pages/index.js`)
+
+- Interface utilisateur React avec hooks (useState, useEffect)
+- Gestion de l'historique avec localStorage
+- Nettoyage du HTML pour retirer CSS et JS inline
+- Système de copie dans le presse-papier
+- Téléchargement de fichiers avec Blob API
+
+### Backend (`pages/api/scrape.js`)
+
+- Route API Next.js
+- Récupération du contenu avec Axios
+- Parsing HTML avec Cheerio
+- Extraction séparée du HTML, CSS et JavaScript
+- Gestion des erreurs et timeouts
+
+## ⚙️ Configuration
+
+### Modifier le timeout
+
+Dans `pages/api/scrape.js`, ligne 22 :
+
+```javascript
+timeout: 10000  // 10 secondes (10000ms)
+```
+
+### Modifier le nombre d'entrées dans l'historique
+
+Dans `pages/index.js`, fonction `saveToHistory` :
+
+```javascript
+.slice(0, 10)  // Limite à 10 entrées
+```
+
+## 🔒 Limitations
+
+- ⚠️ Certains sites bloquent le scraping (protection CORS, anti-bot)
+- ⚠️ Les sites avec authentification ne sont pas accessibles
+- ⚠️ Les fichiers CSS/JS externes ne sont pas téléchargés (seulement les liens)
+- ⚠️ Timeout de 10 secondes par requête
+
+## 🧪 Sites de test recommandés
+
+```
+https://example.com
+https://github.com
+https://wikipedia.org
+https://developer.mozilla.org
+```
+
+## 🐛 Résolution de problèmes
+
+### Erreur "Method not allowed"
+- Vérifiez que `pages/api/scrape.js` existe bien
+- Redémarrez le serveur de développement
+
+### Erreur "CORS"
+- Certains sites bloquent les requêtes externes
+- Essayez avec un autre site
+
+### L'historique ne se charge pas
+- Vérifiez que JavaScript est activé
+- Vérifiez les permissions localStorage dans votre navigateur
+
+### Timeout
+- Le site est peut-être trop lent
+- Augmentez le timeout dans `scrape.js`
+
+## 📝 License
+
+Ce projet est open source et disponible sous licence MIT.
+
+## 👨‍💻 Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à :
+- Signaler des bugs
+- Proposer des nouvelles fonctionnalités
+- Améliorer la documentation
+
+## 🙏 Crédits
+
+Développé avec ❤️ en utilisant Next.js et React.
+
+---
+
+**Note** : Respectez toujours les conditions d'utilisation des sites web et les lois sur le scraping dans votre juridiction.
